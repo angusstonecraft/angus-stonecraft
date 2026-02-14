@@ -9,10 +9,10 @@ export default function Home() {
         </h1>
         <p className="max-w-xl text-lg text-neutral-600 mb-6">
           Handcrafted stone pieces inspired by the raw beauty of the Earth.
-          Lapidary art. Custom cuts. Natural elegance.
+          Lapidary art. Custom cuts. Tumbled rock.
         </p>
         <a
-          href="mailto:yourname@email.com"
+          href="mailto:angusstonecraft@gmail.com"
           className="rounded-2xl px-6 py-3 text-base bg-black text-white hover:opacity-80 transition"
         >
           Contact for Custom Orders
@@ -34,7 +34,7 @@ export default function Home() {
       <section className="px-6 py-20 text-center bg-white">
         <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
         <p className="text-neutral-600 mb-4">
-          Email: yourname@email.com
+          Email: angusstonecraft@email.com
         </p>
         <p className="text-neutral-600 mb-8">
           Based in Albuquerque, NM
