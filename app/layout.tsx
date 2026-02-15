@@ -31,8 +31,9 @@ export default function RootLayout({
         <header>
           <nav className="flex justify-center gap-8 py-4 bg-black border-b text-sm font-medium">
             <Link href="/" className="text-white hover:opacity-80">Home</Link>
-            <Link href="/about" className="text-white hover:opacity-80">About</Link>
             <Link href="/gallery" className="text-white hover:opacity-80">Gallery</Link>
+            <Link href="/about" className="text-white hover:opacity-80">About</Link>
+            <Link href="/blog" className="text-white hover:opacity-80">Blog</Link>
           </nav>
         </header>
 

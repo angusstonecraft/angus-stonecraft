@@ -19,7 +19,7 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Angus Stonecraft
         </h1>
-        <p className="max-w-xl text-lg text-neutral-600 mb-6">
+        <p className="max-w-xl text-lg text-neutral-600 mb-3">
           Handcrafted stone pieces inspired by the raw beauty of the Earth.
           Lapidary art. Custom cuts. Tumbled rock.
         </p>
@@ -31,9 +31,18 @@ export default function Home() {
         </a>
       </section>
 
+        {/* Events Section */}
+      <section className="px-6 py-20 text-center bg-white">
+        <h2 className="text-2xl font-semibold mb-6">Upcoming Events</h2>
+        <ul className="list-disc list-inside mt-2 text-neutral-600 mb-2">
+          <li>Downtown Albuquerque Artwalk - Friday, June 5th 4:00 PM - 8:00 PM</li>
+          <li>To Be Announced</li>
+        </ul>
+      </section>
+
       {/* Contact Section */}
       <section className="px-6 py-20 text-center bg-white">
-        <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+        <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
         <p className="text-neutral-600 mb-4">
           Email: angusstonecraft@email.com
         </p>
