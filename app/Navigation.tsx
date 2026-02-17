@@ -76,7 +76,7 @@ export default function Navigation() {
         {isMenuOpen && (
           <div
             className="absolute top-full right-0 mt-0 shadow-lg min-w-max"
-            style={{ backgroundColor: "#d6a461" }}
+            style={{ backgroundColor: "#d6a461", zIndex: 50 }}
           >
             <div className="flex flex-col">
               {navLinks.map((link) => (
