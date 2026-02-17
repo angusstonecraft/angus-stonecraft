@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --nav-bg: #171717; /* custom golden */
+  --nav-text: #000000; /* default nav text color (black) */
 }
 
 @theme inline {
@@ -10,12 +12,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair-display);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --nav-bg: #d6a461; /* changes tab color */
+    --nav-text: #171717; /* changes text color in tab */
   }
 }
 

@@ -1,22 +1,10 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center px-6 py-24 bg-gradient-to-b from-neutral-100 to-neutral-50">
-        <div className="flex justify-center mb-8">
-          <Image
-            src="/logo.png"
-            alt="Angus Stonecraft Logo"
-            width={720}
-            height={720}
-            priority
-            className="rounded-2xl shadow-lg bg-transparent object-contain"
-          />
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+      <section className="flex flex-col items-center justify-center text-center px-6 py-5 bg-gradient-to-b from-neutral-100 to-neutral-50">
+        <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-4" style={{ fontFamily: 'var(--font-playfair-display)' }}>
           Angus Stonecraft
         </h1>
         <p className="max-w-xl text-lg text-neutral-600 mb-3">
@@ -44,7 +32,7 @@ export default function Home() {
       <section className="px-6 py-20 text-center bg-white">
         <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
         <p className="text-neutral-600 mb-4">
-          Email: angusstonecraft@email.com
+          Email: angusstonecraft@gmail.com
         </p>
         <p className="text-neutral-600 mb-8">
           Based in Albuquerque, NM
