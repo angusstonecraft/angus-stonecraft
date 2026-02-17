@@ -1,14 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { galleryImages, GalleryImage } from "./gallery/galleryData";
+import { blogPosts } from "./blog/blogData";
 
 export default function RotatingGalleryDisplay() {
   const [current, setCurrent] = useState(0);
-  const images = galleryImages;
+  // Find the most recent blog post (by date)
+  const mostRecentBlog = blogPosts.length > 0 ? [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0] : null;
+  // Add the most recent blog post as a gallery image (if it exists)
+  const blogImage = mostRecentBlog
+    ? {
+        id: 'blog-latest',
+        src: mostRecentBlog.image,
+        alt: mostRecentBlog.title,
+        description: '',
+        width: 600,
+        height: 340,
+        isBlog: true,
+      }
+    : null;
+  const images = blogImage ? [blogImage, ...galleryImages] : galleryImages;
   const total = images.length;
   const goPrev = () => setCurrent((prev) => (prev === 0 ? total - 1 : prev - 1));
   const goNext = () => setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
+  // Auto-advance every 6 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
+    }, 4500); // 6000ms = 6 seconds
+    return () => clearInterval(interval);
+  }, [total]);
   // Title always visible now, so no hover state needed
 
   return (
@@ -24,19 +47,39 @@ export default function RotatingGalleryDisplay() {
           <span className="text-5xl text-white select-none">&#8592;</span>
         </button>
         {/* Image */}
-        <div
-          className="w-full flex justify-center items-center overflow-hidden rounded-lg shadow-lg"
-          style={{ background: "#fff", minHeight: 280 }}
-        >
-          <Image
-            src={images[current].src}
-            alt={images[current].alt}
-            width={images[current].width}
-            height={images[current].height}
-            className="object-contain max-h-[280px] transition-all duration-500"
-            priority
-          />
-        </div>
+        {images[current].isBlog ? (
+          <Link
+            href="/blog"
+            className="w-full flex justify-center items-center overflow-hidden rounded-lg shadow-lg"
+            style={{ background: "#fff", minHeight: 280 }}
+            aria-label="Go to blog"
+          >
+            <Image
+              src={images[current].src}
+              alt={images[current].alt}
+              width={images[current].width}
+              height={images[current].height}
+              className="object-contain max-h-[280px] transition-all duration-500"
+              priority
+            />
+          </Link>
+        ) : (
+          <Link
+            href="/gallery"
+            className="w-full flex justify-center items-center overflow-hidden rounded-lg shadow-lg"
+            style={{ background: "#fff", minHeight: 280 }}
+            aria-label="Go to gallery"
+          >
+            <Image
+              src={images[current].src}
+              alt={images[current].alt}
+              width={images[current].width}
+              height={images[current].height}
+              className="object-contain max-h-[280px] transition-all duration-500"
+              priority
+            />
+          </Link>
+        )}
         {/* Right Arrow */}
         <button
           aria-label="Next image"

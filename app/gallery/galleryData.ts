@@ -6,6 +6,7 @@ export interface GalleryImage {
   description: string;
   width: number;
   height: number;
+  isBlog?: boolean;
 }
 
 export const galleryImages: GalleryImage[] = [
